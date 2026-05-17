@@ -59,7 +59,7 @@ def main():
 
     times = []
     correct = True
-    input_shown = False
+    input_shown = True
     
     for i in range(args.repeat):
         A = get_array(args.type, args.size)
@@ -88,7 +88,7 @@ def main():
         out = res if res is not None else work
         if out != expected:
             correct = False
-            print(f"Run {i+1}: saída incorreta para {args.algorithm} (size={args.size})")
+            # print(f"Run {i+1}: saída incorreta para {args.algorithm} (size={args.size})")
         else:
             print(f"Run {i+1}: OK — {elapsed:.6f}s")
 

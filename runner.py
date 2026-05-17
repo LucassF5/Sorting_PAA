@@ -47,7 +47,7 @@ def main():
     p.add_argument('--size', type=int, choices=sizes, default=100)
     p.add_argument('--repeat', type=int, default=1)
     p.add_argument('--debug', action='store_true')
-    p.add_argument('--show-input', action='store_true', help='Mostrar array de entrada antes da ordenação')
+    p.add_argument('--show-input', action='store_true', default=True, help='Mostrar array de entrada antes da ordenação')
     p.add_argument('--force', action='store_true', help='Ignorar aviso para tamanhos grandes')
     args = p.parse_args()
 
@@ -59,7 +59,7 @@ def main():
 
     times = []
     correct = True
-    input_shown = True
+    input_shown = False
     
     for i in range(args.repeat):
         A = get_array(args.type, args.size)

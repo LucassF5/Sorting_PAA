@@ -6,7 +6,7 @@ Provides `sort(A, debug=False)` as public API.
 from typing import List
 
 
-def max_heapify(A: List[int], i: int, heap_size: int, debug: bool = False) -> None:
+def max_heapify(A: List[int], i: int, debug: bool = False) -> None:
     """Maintain max-heap property for subtree rooted at index i (0-based).
 
     heap_size: number of elements in the heap (A[0..heap_size-1])
@@ -16,23 +16,23 @@ def max_heapify(A: List[int], i: int, heap_size: int, debug: bool = False) -> No
     right = 2 * i + 2
     largest = i
 
-    if left < heap_size and A[left] > A[largest]:
+    if left < len(A) and A[left] > A[largest]:
         largest = left
-    if right < heap_size and A[right] > A[largest]:
+    if right < len(A) and A[right] > A[largest]:
         largest = right
 
     if largest != i:
         A[i], A[largest] = A[largest], A[i]
         if debug:
             print(f"heapify swap i={i} with largest={largest}")
-        max_heapify(A, largest, heap_size, debug=debug)
+        max_heapify(A, largest, debug=debug)
 
 
 def build_max_heap(A: List[int], debug: bool = False) -> None:
     """Build max-heap from unordered array A (in-place)."""
     heap_size = len(A)
     for i in range(heap_size // 2 - 1, -1, -1):
-        max_heapify(A, i, heap_size, debug=debug)
+        max_heapify(A, i, debug=debug)
 
 
 def heapsort(A: List[int], debug: bool = False) -> None:
@@ -44,7 +44,7 @@ def heapsort(A: List[int], debug: bool = False) -> None:
         if debug:
             print(f"extract max: swap A[0] with A[{i}]")
         heap_size -= 1
-        max_heapify(A, 0, heap_size, debug=debug)
+        max_heapify(A, 0, debug=debug)
 
 
 def sort(A: List[int], debug: bool = False) -> List[int]:

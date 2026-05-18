@@ -19,7 +19,7 @@ def bublesort(A: List[int], debug: bool = False) -> None:
 
 
 def sort(A: List[int], debug: bool = False) -> List[int]:
-    """Public API: returns a sorted copy of `A` using bubble sort."""
+    """Returns a sorted copy of `A` using bubble sort."""
     if not A:
         return []
     B = A.copy()

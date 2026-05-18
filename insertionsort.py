@@ -1,7 +1,4 @@
-"""Insertion Sort (CLRS) implementation.
-
-Provides `insertionSort(A, debug=False)` as public API.
-"""
+"""Insertion Sort (CLRS) implementation."""
 from typing import List
 
 
@@ -31,7 +28,7 @@ def insertionSort(A: List[int], debug: bool = False) -> List[int]:
 
 # Alias para manter compatibilidade com runner.py
 def sort(A: List[int], debug: bool = False) -> List[int]:
-    """Public API: returns a sorted copy of `A` using insertion sort."""
+    """Returns a sorted copy of `A` using insertion sort."""
     if not A:
         return []
     B = A.copy()

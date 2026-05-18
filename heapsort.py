@@ -1,7 +1,6 @@
 """Heapsort (CLRS) implementation (in-place).
 
 Implements MAX-HEAPIFY, BUILD-MAX-HEAP, and HEAPSORT following CLRS structure.
-Provides `sort(A, debug=False)` as public API.
 """
 from typing import List
 
@@ -48,7 +47,7 @@ def heapsort(A: List[int], debug: bool = False) -> None:
 
 
 def sort(A: List[int], debug: bool = False) -> List[int]:
-    """Public API: returns a sorted copy of `A` using heapsort."""
+    """Returns a sorted copy of `A` using heapsort."""
     if not A:
         return []
     B = A.copy()

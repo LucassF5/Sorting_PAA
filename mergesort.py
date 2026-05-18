@@ -1,7 +1,6 @@
 """Merge Sort (CLRS) implementation (in-place merge using sentinels).
 
 Implements the pseudocode MERGE(A,p,q,r) and MERGE-SORT(A,p,r) from CLRS.
-Provides `sort(A, debug=False)` as public API (returns a sorted copy).
 """
 from typing import List
 
@@ -52,7 +51,7 @@ def mergesort(A: List[int], p: int, r: int, debug: bool = False) -> None:
 
 
 def sort(A: List[int], debug: bool = False) -> List[int]:
-    """Public API: returns a sorted copy of `A` using CLRS merge sort (in-place on copy)."""
+    """Returns a sorted copy of `A` using CLRS merge sort (in-place on copy)."""
     if not A:
         return []
     B = A.copy()

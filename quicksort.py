@@ -1,7 +1,6 @@
 """Quicksort (CLRS) implementation (in-place).
 
 Implements PARTITION and QUICKSORT following CLRS structure.
-Provides `sort(A, debug=False)` as public API.
 """
 from typing import List
 import random
@@ -40,7 +39,7 @@ def quicksort(A: List[int], p: int, r: int, debug: bool = False) -> None:
 
 
 def sort(A: List[int], debug: bool = False) -> List[int]:
-    """Public API: returns a sorted copy of `A` using quicksort."""
+    """Returns a sorted copy of `A` using quicksort."""
     if not A:
         return []
     B = A.copy()

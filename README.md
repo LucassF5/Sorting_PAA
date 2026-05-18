@@ -71,6 +71,8 @@ Opções:
 
 Algoritmos implementados (todos seguem CLRS)
 
+Todos os algoritmos implementados neste repositório são baseados nos exemplos de pseudocódigo do livro **"Algoritmos - Teoria e Prática"** (tradução de _Introduction to Algorithms_) de **Thomas H. Cormen**, **Charles E. Leiserson**, **Ronald L. Rivest** e **Clifford Stein**.
+
 1. **Bubble Sort** — O(n²) | simples, para fins educacionais
 2. **Insertion Sort** — O(n²) | melhor para pequenos vetores ou semi-ordenados
 3. **Merge Sort** — O(n log n) garantido | estável, divide-e-conquista
@@ -79,7 +81,7 @@ Algoritmos implementados (todos seguem CLRS)
 
 Adicionar novos algoritmos
 
-1. Crie um módulo, ex.: `shellsort.py`, exporte a função `sort(A, debug=False)` que retorna o array ordenado (ou ordena in-place)
+1. Crie um módulo, ex.: `shellsort.py`
 2. Execute com `sort_cli.py`:
    ```bash
    python sort_cli.py --algorithm shellsort --type random --size 100
@@ -94,4 +96,3 @@ Boas práticas
 - Sempre use `A.copy()` antes de ordenar para não alterar a fonte.
 - Para visualização de passos, use `yield A.copy()` (generator) ou acumule `snaps.append(A.copy())`.
 - Use `logging` em vez de `print` em experimentos automatizados para controlar o verboso.
-- Mantenha a função `sort(A, debug=False)` como interface pública em cada algoritmo para compatibilidade com `sort_cli.py` e `runner.py`.

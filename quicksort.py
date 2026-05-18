@@ -4,13 +4,19 @@ Implements PARTITION and QUICKSORT following CLRS structure.
 Provides `sort(A, debug=False)` as public API.
 """
 from typing import List
+import random
 
 
 def partition(A: List[int], p: int, r: int, debug: bool = False) -> int:
-    """Partition array A[p..r] using last element as pivot (CLRS style).
+    """Partition array A[p..r] using random pivot.
 
+    Randomly selects a pivot to avoid worst-case O(n²) on ordered arrays.
     Returns the index q where A[p..q-1] <= A[q] and A[q+1..r] > A[q].
     """
+    # Random pivot selection to avoid O(n²) worst case
+    pivot_idx = random.randint(p, r)
+    A[pivot_idx], A[r] = A[r], A[pivot_idx]
+    
     x = A[r]  # pivot
     i = p - 1
     for j in range(p, r):
@@ -26,7 +32,7 @@ def partition(A: List[int], p: int, r: int, debug: bool = False) -> int:
 
 
 def quicksort(A: List[int], p: int, r: int, debug: bool = False) -> None:
-    """Recursively sort A[p..r] in-place using quicksort (CLRS)."""
+    """Recursively sort A[p..r] in-place using quicksort with random pivot."""
     if p < r:
         q = partition(A, p, r, debug=debug)
         quicksort(A, p, q - 1, debug=debug)

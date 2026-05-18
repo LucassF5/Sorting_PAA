@@ -42,12 +42,12 @@ def merge(A: List[int], p: int, q: int, r: int, debug: bool = False) -> None:
         print(f"merge p={p} q={q} r={r} -> {A[p:r+1]}")
 
 
-def merge_sort(A: List[int], p: int, r: int, debug: bool = False) -> None:
+def mergesort(A: List[int], p: int, r: int, debug: bool = False) -> None:
     """Recursively sort A[p..r] in-place using merge sort (CLRS)."""
     if p < r:
         q = (p + r) // 2
-        merge_sort(A, p, q, debug=debug)
-        merge_sort(A, q + 1, r, debug=debug)
+        mergesort(A, p, q, debug=debug)
+        mergesort(A, q + 1, r, debug=debug)
         merge(A, p, q, r, debug=debug)
 
 
@@ -56,5 +56,5 @@ def sort(A: List[int], debug: bool = False) -> List[int]:
     if not A:
         return []
     B = A.copy()
-    merge_sort(B, 0, len(B) - 1, debug=debug)
+    mergesort(B, 0, len(B) - 1, debug=debug)
     return B

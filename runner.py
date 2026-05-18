@@ -42,7 +42,7 @@ def load_algorithm(name):
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument('--algorithm', default='python', help="Nome do algoritmo (ex.: insertion, python, heapsort, quicksort, merge_sort)")
+    p.add_argument('--algorithm', default='python', help="Nome do algoritmo (ex.: insertion, python, heapsort, quicksort, mergesort)")
     p.add_argument('--type', choices=['ordered', 'reversed', 'random'], default='random')
     p.add_argument('--size', type=int, choices=sizes, default=100)
     p.add_argument('--repeat', type=int, default=1)

@@ -1,7 +1,7 @@
 """CLI genérica para executar algoritmos de ordenação com array customizado.
 
 Uso:
-  python sort_cli.py --algorithm merge_sort --type reversed --size 10 --show-input --debug
+  python sort_cli.py --algorithm mergesort --type reversed --size 10 --show-input --debug
   python sort_cli.py --algorithm quicksort --type ordered --size 100
   python sort_cli.py --algorithm heapsort --type random --size 50
   python sort_cli.py --algorithm insertionsort --type random --size 10
@@ -40,7 +40,7 @@ def main():
     p.add_argument(
         '--algorithm',
         required=True,
-        help="Nome do módulo do algoritmo (merge_sort, quicksort, heapsort, insertionsort)"
+        help="Nome do módulo do algoritmo (mergesort, quicksort, heapsort, insertionsort)"
     )
     p.add_argument(
         '--type',

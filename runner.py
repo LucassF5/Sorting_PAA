@@ -95,6 +95,7 @@ def main():
     avg = sum(times) / len(times)
     print(f"\nAlgorithm: {args.algorithm} | type: {args.type} | size: {args.size}")
     print(f"Runs: {len(times)} | Avg time: {avg:.6f}s")
+    print(f"Tamanho: {args.size} - Tempo: {avg:.6f}s")
 
 
 if __name__ == '__main__':

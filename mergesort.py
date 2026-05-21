@@ -4,12 +4,15 @@ Implements the pseudocode MERGE(A,p,q,r) and MERGE-SORT(A,p,r) from CLRS.
 """
 from typing import List
 
+comparisons = 0
+
 
 def merge(A: List[int], p: int, q: int, r: int, debug: bool = False) -> None:
     """Merge subarrays A[p..q] and A[q+1..r] in-place using sentinel values.
 
     Indices are 0-based. This follows CLRS pseudocode where p, q, r are indices.
     """
+    global comparisons
     INF = float('inf')
     n1 = q - p + 1
     n2 = r - q
@@ -30,6 +33,7 @@ def merge(A: List[int], p: int, q: int, r: int, debug: bool = False) -> None:
     i = 0
     j = 0
     for k in range(p, r + 1):
+        comparisons += 1
         if L[i] <= R[j]:
             A[k] = L[i]
             i += 1
@@ -52,6 +56,8 @@ def mergesort(A: List[int], p: int, r: int, debug: bool = False) -> None:
 
 def sort(A: List[int], debug: bool = False) -> List[int]:
     """Returns a sorted copy of `A` using CLRS merge sort (in-place on copy)."""
+    global comparisons
+    comparisons = 0
     if not A:
         return []
     B = A.copy()

@@ -5,6 +5,8 @@ Implements PARTITION and QUICKSORT following CLRS structure.
 from typing import List
 import random
 
+comparisons = 0
+
 
 def partition(A: List[int], p: int, r: int, debug: bool = False) -> int:
     """Partition array A[p..r] using random pivot.
@@ -12,6 +14,7 @@ def partition(A: List[int], p: int, r: int, debug: bool = False) -> int:
     Randomly selects a pivot to avoid worst-case O(n²) on ordered arrays.
     Returns the index q where A[p..q-1] <= A[q] and A[q+1..r] > A[q].
     """
+    global comparisons
     # Random pivot selection to avoid O(n²) worst case
     pivot_idx = random.randint(p, r)
     A[pivot_idx], A[r] = A[r], A[pivot_idx]
@@ -19,6 +22,7 @@ def partition(A: List[int], p: int, r: int, debug: bool = False) -> int:
     x = A[r]  # pivot
     i = p - 1
     for j in range(p, r):
+        comparisons += 1
         if A[j] <= x:
             i += 1
             A[i], A[j] = A[j], A[i]
@@ -40,6 +44,8 @@ def quicksort(A: List[int], p: int, r: int, debug: bool = False) -> None:
 
 def sort(A: List[int], debug: bool = False) -> List[int]:
     """Returns a sorted copy of `A` using quicksort."""
+    global comparisons
+    comparisons = 0
     if not A:
         return []
     B = A.copy()
